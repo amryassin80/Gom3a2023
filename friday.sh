@@ -57,15 +57,15 @@ echo "50 23 * * * git -C $myfolder/PrayerTimetable/ pull" >> $myfile
 # Separate the hour and minutes for each prayer and prepare/add commands to the temp file
 IFS=':'
 read hour minute <<<$fajr
-echo "$minute $hour * * * vlc -I dummy $azanfajr vlc://quit" >> $myfile
+echo "$minute $hour * * * XDG_RUNTIME_DIR=/run/user/1000 vlc -I dummy $azanfajr vlc://quit" >> $myfile
 read hour minute <<<$dhur
-echo "$minute $hour * * * vlc -I dummy $azangen vlc://quit" >> $myfile
+echo "$minute $hour * * * XDG_RUNTIME_DIR=/run/user/1000 vlc -I dummy $azangen vlc://quit" >> $myfile
 read hour minute <<<$asr
-echo "$minute $hour * * * vlc -I dummy $azangen vlc://quit" >> $myfile
+echo "$minute $hour * * * XDG_RUNTIME_DIR=/run/user/1000 vlc -I dummy $azangen vlc://quit" >> $myfile
 read hour minute <<<$maghrib
-echo "$minute $hour * * * vlc -I dummy $azangen vlc://quit" >> $myfile
+echo "$minute $hour * * * XDG_RUNTIME_DIR=/run/user/1000 vlc -I dummy $azangen vlc://quit" >> $myfile
 read hour minute <<<$isha
-echo "$minute $hour * * * vlc -I dummy $azangen vlc://quit" >> $myfile
+echo "$minute $hour * * * XDG_RUNTIME_DIR=/run/user/1000 vlc -I dummy $azangen vlc://quit" >> $myfile
 
 # Clear the previous crontab entries
 crontab -r
